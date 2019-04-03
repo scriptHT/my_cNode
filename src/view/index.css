@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+}
+body{
+    overflow-x:hidden;
+}
+.pageWrap{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main{
+    flex: 1;
+}
+.main .wrap{
+    border: 1px solid #ccc;
+    height: 100%;
+    text-align: center;
+}
+.main .wrap .ant-menu-item-active{
+    background-color: #e6f7ff;
+    border-right: 1px solid #1890ff;
+    transition: 0.8s;
+}
+.main .wrap .ant-menu-item-selected{
+    border-right: 1px solid #1890ff;
+}
+.main .wrap .indexSider{
+    border-right: none;
+}
+.main .wrap .indexList{
+    border-left: 1px solid #ccc;
+}
+#indexXsMenu{
+    display: flex;
+    justify-content: space-around;
+    flex: 1;
+    border-bottom: none;
+    margin: 0 0 -1px 0 ;
+}
+#indexXsMenu :hover,
+#indexXsMenu .ant-menu-item-selected{
+    border-right: none;
+}
+/*小屏下的菜单*/
+/*也可以直接再写一个Col  让xs：24  mode：horizontal
+  需要把indexMenu提取成一个组件
+@media all and (max-width:767px){
+    #indexMenu{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-around;
+        border-bottom: 1px solid #ccc;
+    }
+    #indexMenu li {
+        margin: 0 0 -1px 0 ;
+        border: none;
+        border-bottom: 3px solid rabg(0,0,0,0);
+    }
+    #indexMenu .ant-menu-item-active,
+    #indexMenu .ant-menu-item-selected{
+        border-bottom:3px solid #1890ff;
+        transition: 0.5s;
+        background: none;
+    }
+}*/
+.header{
+    color: #fff;
+}
+#logo{
+    line-height: 64px;
+    color: #fff;
+    text-align: center;
+}
+.wrap{
+    max-width: 980px;
+    margin:0 auto;
+    height: 64px;
+} 
+.divider{
+    height:44px;
+    margin: 10px 0 ;
+}
+#nav{
+    background: none;
+    line-height: 64px;
+    margin: -64px 0 0 30px;
+}
+#nav a {
+    color: #fff;
+}
+#nav .ant-menu-item{
+    border:none;
+}
+#nav .ant-menu-item-selected a{
+    color: #1890ff;
+}
+#nav .ant-menu-item :hover{
+    color: #1890ff;
+}
+.xsMenu{
+    position: absolute;
+    left: 95%;
+}
+.footer{
+    width: 100%;
+    text-align: center;
+}
+
+.ant-list-item{
+    margin:0 10px;
+    padding: 10px 0 0 0;
+}
+.ant-list-item-meta-content{
+    text-align: left;
+}
+.ant-list-item-meta-title a {
+    color: #1890ff;
+}
+#card{
+    max-width: 980px;
+    margin: 0 auto;
+}
+.ant-card-body img{
+    max-width: 15%;
+    min-width: 100px;
+}
