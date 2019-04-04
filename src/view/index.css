@@ -126,3 +126,13 @@ body{
     max-width: 15%;
     min-width: 100px;
 }
+.wrap .ant-card{
+    text-align: left;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid #fff;
+}
+.avatar{
+    width: 100px;
+    height: 100px;
+}

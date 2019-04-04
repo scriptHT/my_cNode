@@ -1,10 +1,9 @@
 import React ,{Component} from "react";
 import {Card} from "antd";
-import data from "../view/about/data";
 
-class TxtCard extends Component {
+class PubCard extends Component {
     render(){
-        // console.log(data)
+        let {data} = this.props;
         return(
         <div>
             {data.map((item,index)=>(<Card
@@ -24,4 +23,4 @@ class TxtCard extends Component {
         )
     }
 }
-export default TxtCard;
+export default PubCard;
