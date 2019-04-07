@@ -133,6 +133,19 @@ body{
     border-top: 1px solid #fff;
 }
 .avatar{
+    display: inline-block;
+    margin:20px auto;
     width: 100px;
     height: 100px;
+}
+.userInfo{
+    font-size: 16px;
+    padding-bottom:15px;
+    border-bottom: 1px solid #ccc;
+}
+.recentThings .ant-spin-container .ant-list-item .ant-row-flex{
+    margin-bottom: 15px;
+}
+.userAvatar img{
+    min-width: 32px;
 }

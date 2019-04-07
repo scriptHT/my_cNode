@@ -3,9 +3,10 @@ import {Card,Avatar} from "antd";
 import data from "./data";
 import TxtTag from "../txtTag";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 class Details extends Component {
     render(){
-        console.log(data);
+        // console.log(data);
         const title1 = (<div>
             <h2>{data.data.title}</h2>
             <TxtTag data = {data.data}/>
@@ -39,4 +40,4 @@ class Details extends Component {
         )
     }
 }
-export default Details;
+export default connect(state=>state.details) (Details);
