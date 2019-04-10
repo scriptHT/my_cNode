@@ -26,13 +26,20 @@ const tab = {
         color:"geekblue",
         txt:"测试"
     },
+    "":{
+        color:"",
+        txt:"未分类"
+    }
 
 }
 function getTab(data){
+    // console.log(data)
     return(data.top?
         "top":
         data.good?
-        "good":data.tab
+        "good":
+        data.tab?
+        data.tab:""
     )
 }
 class TxtTag extends Component{
@@ -40,7 +47,9 @@ class TxtTag extends Component{
         let nowTab = tab[getTab(this.props.data)]
         // console.log(nowTab)
         return(
-            <Tag color={nowTab.color}>{nowTab.txt}</Tag>
+            <Tag 
+                color={nowTab.color}
+            >{nowTab.txt}</Tag>
         )
     }
 }
