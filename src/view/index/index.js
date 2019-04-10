@@ -1,12 +1,12 @@
 import React ,{Component} from "react";
-import {Row,Col} from "antd";
+import {Row,Col,Pagination} from "antd";
 import IndexMenu from "./indexMenu";
 import IndexList from"./list";
 
 class Index extends Component {
     render(){
         let tab = this.props.match.params.id;
-        return(
+        return(<div>
             <Row className ="wrap">
                 <Col md = {6} xs={0} className="indexSider" >
                     <IndexMenu
@@ -24,7 +24,7 @@ class Index extends Component {
                     <IndexList tab={tab} />
                 </Col>
             </Row>
-        )
+        </div>)
     }
 }
 export default Index;

@@ -3,10 +3,10 @@ function list (state={
     loading:true
 },action){
     switch (action.type){
-        case "LIST_)UPDATA":
+        case "LIST_UPDATA":
             return{
                 loading:true,
-                data:action.data.data
+                data: state.data
             }
         case "LIST_UPDATA_SUCC":
             return{

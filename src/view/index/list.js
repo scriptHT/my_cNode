@@ -10,22 +10,27 @@ class  IndexList extends Component{
         this.state={
             page:1,
         }
-        this.getData(this.props.tab);
+        this.getData(this.props.tab,this.state.page);
     }
     shouldComponentUpdate(nextProps,nextState){
-        console.log(nextProps)
+        if(this.state.page !== nextState.page){
+            this.getData(nextProps.tab,nextState.page)
+            return false;
+        }
+        // console.log(nextProps)
         if(this.props.tab !== nextProps.tab){
-            this.getData(nextProps.tab);
+            this.state.page = 1;
+            this.getData(nextProps.tab,1);
             return false;
         }
         return true;
     }
-    getData(tab){
+    getData(tab,page){
         this.props.dispatch((dispatch)=>{
             dispatch({
                 type:"LIST_UPDATA"
             })
-            axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page={this.state.page}&limit=15`)
+            axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${page}&limit=10`)
             .then((res)=>{
                 dispatch({
                     type:"LIST_UPDATA_SUCC",
@@ -45,10 +50,23 @@ class  IndexList extends Component{
         //loading,data,tab,page
         // console.log(this.props);
         let {loading,data} = this.props
+        let pagination = {
+            current:this.state.page,
+            pageSize:10,
+            showQuickJumper :true,
+            total:1000,
+            onChange:((current)=>{
+                console.log(current);
+                this.setState({
+                    page:current
+                })
+            })
+        }
         return(
             <List
                 loading={loading}
                 dataSource={data}
+                pagination={loading?false:pagination}
                 renderItem={item=>(
                 <List.Item actions={["回复"+item.reply_count,"访问"+item.visit_count]}>
                 <List.Item.Meta

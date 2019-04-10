@@ -4,15 +4,15 @@ import {Link} from "react-router-dom";
 
 class UserList extends Component{
     render(){
-        let{loading,title,data,className} =this.props;
-        console.log(data)
+        let{loading,title,data} =this.props;
+        // console.log(data)
         return(<div>
             <Card 
                 loading={loading}
                 title={title}
             >
                 <List 
-                    className={className}
+                    className="recentThings"
                     dataSource={data}
                     renderItem={item=>(<List.Item > 
                         <Row style={{width:'100%'}} type="flex" justify="space-between">
@@ -22,10 +22,6 @@ class UserList extends Component{
                             <Col xs={8}  md={4}><span>最后回复：{item.last_reply_at.split("T")[0]}</span></Col>
                             <Col xs={24} md={0}><br/><Link to={"/details/" + item.id}><strong>{item.title}<strong/></strong></Link></Col>
                         </Row>
-                        
-                        
-                        
-                        
                     </List.Item>)}>
                 </List>
 

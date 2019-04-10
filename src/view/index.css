@@ -1,8 +1,10 @@
 *{
-    margin: 0;
+    margin: 0px;
+    padding:0px;
 }
 body{
     overflow-x:hidden;
+    min-width:370px;
 }
 .pageWrap{
     min-height: 100vh;
@@ -30,6 +32,7 @@ body{
     border-right: none;
 }
 .main .wrap .indexList{
+    border:none;
     border-left: 1px solid #ccc;
 }
 #indexXsMenu{
@@ -103,6 +106,9 @@ body{
     position: absolute;
     left: 95%;
 }
+.ant-card-head-title{
+    white-space: pre-wrap;
+}
 .footer{
     width: 100%;
     text-align: center;
@@ -148,4 +154,8 @@ body{
 }
 .userAvatar img{
     min-width: 32px;
+}
+.ant-list-pagination {
+    /* padding-right: 18%; */
+    text-align:  center
 }

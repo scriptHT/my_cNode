@@ -1,13 +1,38 @@
 import React ,{Component} from "react";
 import {Avatar,Row,Col} from "antd";
-import data from "./data";
 import UserList from "./userList";
 import {connect} from "react-redux";
+import axios from "axios";
 
 class User extends Component{
+    constructor(arg){
+        super(arg);
+        let id = this.props.match.params.id;
+        this.getData(id);
+    }
+    
+    getData(id){
+        this.props.dispatch((dispatch)=>{
+                
+            axios.get(`https://cnodejs.org/api/v1/user/${id}`)
+            .then((res)=>{
+                dispatch({
+                    type:"USER_UPDATE_SUCC",
+                    data:res.data
+                })
+            })
+            .catch((error)=>{
+                dispatch({
+                    type:"USER_UPDATE_ERROR"
+                })
+            })
+        })
+    }
     render(){
-        // console.log(data)
-        let {avatar_url,loginname,create_at,score,recent_topics,recent_replies} = data.data
+        // console.log("+++++++++++")
+        // console.log(this.props);
+        let {loading,data} = this.props;
+        let {avatar_url,loginname,create_at,score,recent_topics,recent_replies} = data;
         return(
             <div className="wrap">
                 <Avatar className="avatar" data={avatar_url} ></Avatar>
@@ -18,19 +43,17 @@ class User extends Component{
                 </Row>
                 <UserList 
                     data={recent_topics}
-                    loading={false} 
+                    loading={loading} 
                     title="最近创建的话题"
-                    className="recentThings"
                 />
                 
                 <UserList 
                     data={recent_replies}
-                    loading={false} 
+                    loading={loading} 
                     title="最近回复的话题"
-                    className="recentThings"
                 />
             </div>
         )
     }
 }
-export default connect(state=>state.user) (User);
+export default connect(state=>(state.user)) (User);
